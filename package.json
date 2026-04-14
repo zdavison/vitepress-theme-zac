@@ -1,0 +1,40 @@
+{
+  "name": "vitepress-theme-zac",
+  "version": "0.1.0",
+  "description": "A lofi VitePress theme inspired by zac.ooo",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles/*": "./dist/styles/*"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "vitepress dev demo",
+    "demo:build": "vitepress build demo",
+    "demo:preview": "vitepress preview demo"
+  },
+  "peerDependencies": {
+    "vitepress": ">=1.0.0",
+    "vue": ">=3.3.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.0.0",
+    "@fontsource-variable/jetbrains-mono": "^5.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitepress": "^1.6.0",
+    "vue": "^3.5.0"
+  },
+  "license": "MIT"
+}
