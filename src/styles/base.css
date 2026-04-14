@@ -1,0 +1,89 @@
+/*
+ * Font imports and global base styles
+ */
+
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* ── Prose body sizing ── */
+.vp-doc p,
+.vp-doc li,
+.vp-doc ul,
+.vp-doc ol {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ── Inline code ── */
+.vp-doc :not(pre) > code {
+  padding: 0.15em 0.35em;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+}
+
+/* ── Code blocks ── */
+.vp-doc div[class*="language-"] {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+/* ── Scrollbar (thin, subtle) ── */
+.vp-doc ::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+.vp-doc ::-webkit-scrollbar-thumb {
+  background-color: #999999;
+}
+
+/* ── Sharp corners everywhere ── */
+.VPButton,
+.VPBadge,
+.vp-doc div[class*="language-"],
+.vp-doc .custom-block,
+.VPFeature,
+.VPNavBarSearch .search-input,
+.VPLocalSearchBox .search-input {
+  border-radius: 0.25rem !important;
+}
+
+/* ── Tables ── */
+.vp-doc table {
+  font-size: 0.85rem;
+}
+
+.vp-doc th,
+.vp-doc td {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Headings ── */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.vp-doc h1 {
+  font-size: 1.75rem;
+}
+
+/* ── Links ── */
+.vp-doc a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* ── Blockquotes ── */
+.vp-doc blockquote {
+  border-left: 2px solid rgba(0, 0, 0, 0.15);
+  color: #6b6b6b;
+  font-size: 0.85rem;
+}
+
+/* ── HR ── */
+.vp-doc hr {
+  border-color: rgba(0, 0, 0, 0.08);
+}

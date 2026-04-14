@@ -1,0 +1,164 @@
+/*
+ * VitePress component style overrides
+ * Applies the lofi aesthetic to built-in VitePress components.
+ */
+
+/* ── Navigation ── */
+
+/* Active nav link uses hatch-pattern underline */
+.VPNavBarMenuLink.active::after,
+.VPNavScreenMenuLink.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #999999 0px,
+    #999999 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+.VPNavBarMenuLink.active,
+.VPNavScreenMenuLink.active {
+  position: relative;
+  color: var(--vp-c-text-1);
+}
+
+/* Remove default VitePress active color */
+.VPNavBarMenuLink.active:hover {
+  color: var(--vp-c-text-1);
+}
+
+/* Nav separator lines */
+.VPNav .divider,
+.VPNavBar .divider {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Sidebar ── */
+
+/* Active sidebar item: bold, not colored */
+.VPSidebarItem.is-active > .item > .link > .text {
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+
+/* Sidebar link hover */
+.VPSidebarItem .link:hover .text {
+  color: var(--vp-c-text-1);
+}
+
+/* Sidebar border */
+.VPSidebar {
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ── Custom Blocks ── */
+
+/* All custom blocks: thin left border, no colored fills */
+.vp-doc .custom-block {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 3px solid;
+  background-color: transparent;
+  padding: 1rem 1.25rem;
+}
+
+.vp-doc .custom-block.info,
+.vp-doc .custom-block.note {
+  border-left-color: #999999;
+}
+
+.vp-doc .custom-block.tip {
+  border-left-color: #666666;
+}
+
+.vp-doc .custom-block.warning {
+  border-left-color: #6b5c00;
+}
+
+.vp-doc .custom-block.danger,
+.vp-doc .custom-block.caution {
+  border-left-color: #8b0000;
+}
+
+/* Details blocks get hatch shadow */
+.vp-doc .custom-block.details {
+  position: relative;
+}
+
+.vp-doc .custom-block.details::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: repeating-linear-gradient(
+    45deg,
+    #999999 0px,
+    #999999 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.3;
+  transition:
+    top 0.15s ease,
+    left 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.vp-doc .custom-block.details:hover::after {
+  top: 6px;
+  left: 6px;
+}
+
+/* Custom block title */
+.vp-doc .custom-block-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ── Feature cards on home page ── */
+.VPFeature {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: transparent !important;
+  transition: border-color 0.15s ease;
+}
+
+.VPFeature:hover {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ── Footer ── */
+.VPFooter {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ── Content container ── */
+.VPDoc .container .content {
+  max-width: 768px;
+}
+
+/* ── Badge ── */
+.VPBadge {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.75rem;
+}
+
+/* ── Outline / ToC ── */
+.VPDocAsideOutline .outline-link {
+  font-size: 0.8rem;
+}
+
+.VPDocAsideOutline .outline-link.active {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
