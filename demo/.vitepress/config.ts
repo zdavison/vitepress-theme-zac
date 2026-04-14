@@ -3,6 +3,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Theme Zac Demo',
   description: 'Demo site for vitepress-theme-zac',
+  markdown: {
+    theme: 'github-light',
+  },
   themeConfig: {
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },

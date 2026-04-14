@@ -86,8 +86,8 @@
   /* ── Code ── */
   --vp-code-font-size: 0.85em;
   --vp-code-color: #1a1a1a;
-  --vp-code-bg: rgba(0, 0, 0, 0.04);
-  --vp-code-block-bg: #fafafa;
+  --vp-code-bg: rgba(0, 0, 0, 0.03);
+  --vp-code-block-bg: rgba(0, 0, 0, 0.02);
   --vp-code-block-color: #1a1a1a;
   --vp-code-line-highlight-color: rgba(0, 0, 0, 0.04);
   --vp-code-line-diff-add-color: rgba(26, 92, 26, 0.08);

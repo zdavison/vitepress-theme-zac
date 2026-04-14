@@ -1,16 +1,32 @@
 /*
  * VitePress component style overrides
- * Applies the lofi aesthetic to built-in VitePress components.
+ * Applies the zac.ooo lofi aesthetic to built-in VitePress components.
  */
 
-/* ── Navigation ── */
+/* ══════════════════════════════════════════
+   Navigation
+   ══════════════════════════════════════════ */
+
+/* Nav bar — add top and bottom separator lines like zac.ooo */
+.VPNavBar .wrapper {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.VPNavBar .container {
+  border-bottom: none !important;
+}
 
 /* Active nav link uses hatch-pattern underline */
-.VPNavBarMenuLink.active::after,
-.VPNavScreenMenuLink.active::after {
+.VPNavBarMenuLink.active {
+  position: relative;
+  color: var(--vp-c-text-1) !important;
+  font-weight: 700;
+}
+
+.VPNavBarMenuLink.active::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 4px;
@@ -23,72 +39,102 @@
   );
 }
 
-.VPNavBarMenuLink.active,
 .VPNavScreenMenuLink.active {
   position: relative;
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-1) !important;
+  font-weight: 700;
 }
 
-/* Remove default VitePress active color */
+/* Nav link hover */
+.VPNavBarMenuLink:hover,
 .VPNavBarMenuLink.active:hover {
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-1) !important;
 }
 
-/* Nav separator lines */
-.VPNav .divider,
-.VPNavBar .divider {
-  background-color: rgba(0, 0, 0, 0.08);
+/* Nav text sizing */
+.VPNavBarMenuLink {
+  font-size: 0.85rem !important;
 }
 
-/* ── Sidebar ── */
+/* Site title — bold, tight tracking */
+.VPNavBarTitle .title {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ══════════════════════════════════════════
+   Sidebar
+   ══════════════════════════════════════════ */
+
+/* Sidebar — clean border */
+.VPSidebar {
+  border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background-color: var(--vp-c-bg) !important;
+}
 
 /* Active sidebar item: bold, not colored */
 .VPSidebarItem.is-active > .item > .link > .text {
-  font-weight: 700;
-  color: var(--vp-c-text-1);
+  font-weight: 700 !important;
+  color: var(--vp-c-text-1) !important;
 }
 
 /* Sidebar link hover */
 .VPSidebarItem .link:hover .text {
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-1) !important;
 }
 
-/* Sidebar border */
-.VPSidebar {
-  border-right: 1px solid rgba(0, 0, 0, 0.08);
+/* Sidebar section title */
+.VPSidebarItem.level-0 > .item .text {
+  font-weight: 700;
+  font-size: 0.85rem;
 }
 
-/* ── Custom Blocks ── */
+/* Sidebar items — smaller, tighter */
+.VPSidebarItem .text {
+  font-size: 0.825rem !important;
+}
+
+/* Sidebar active indicator — use dark line, not colored */
+.VPSidebarItem.is-active > .item .indicator {
+  background-color: var(--vp-c-text-1) !important;
+}
+
+/* ══════════════════════════════════════════
+   Custom Blocks
+   ══════════════════════════════════════════ */
 
 /* All custom blocks: thin left border, no colored fills */
 .vp-doc .custom-block {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-left: 3px solid;
-  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-left: 3px solid !important;
+  background-color: transparent !important;
   padding: 1rem 1.25rem;
+  border-radius: 0.25rem !important;
 }
 
 .vp-doc .custom-block.info,
 .vp-doc .custom-block.note {
-  border-left-color: #999999;
+  border-left-color: #999999 !important;
 }
 
 .vp-doc .custom-block.tip {
-  border-left-color: #666666;
+  border-left-color: #666666 !important;
 }
 
 .vp-doc .custom-block.warning {
-  border-left-color: #6b5c00;
+  border-left-color: #6b5c00 !important;
 }
 
 .vp-doc .custom-block.danger,
 .vp-doc .custom-block.caution {
-  border-left-color: #8b0000;
+  border-left-color: #8b0000 !important;
 }
 
 /* Details blocks get hatch shadow */
 .vp-doc .custom-block.details {
   position: relative;
+  overflow: visible;
+  background-color: #ffffff !important;
 }
 
 .vp-doc .custom-block.details::after {
@@ -126,34 +172,124 @@
   font-size: 0.85rem;
 }
 
-/* ── Feature cards on home page ── */
+/* ══════════════════════════════════════════
+   Feature cards on home page
+   ══════════════════════════════════════════ */
+
 .VPFeature {
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  background-color: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  background-color: #ffffff !important;
   transition: border-color 0.15s ease;
+  position: relative;
+  overflow: visible !important;
+}
+
+.VPFeature::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: repeating-linear-gradient(
+    45deg,
+    #999999 0px,
+    #999999 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.3;
+  transition:
+    top 0.15s ease,
+    left 0.15s ease,
+    opacity 0.15s ease;
 }
 
 .VPFeature:hover {
   border-color: rgba(0, 0, 0, 0.3) !important;
 }
 
-/* ── Footer ── */
+.VPFeature:hover::after {
+  top: 6px;
+  left: 6px;
+}
+
+/* Feature card text */
+.VPFeature .title {
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+}
+
+.VPFeature .details {
+  font-size: 0.825rem !important;
+  color: var(--vp-c-text-2) !important;
+}
+
+/* Features container — allow overflow for hatch shadows */
+.VPFeatures .container {
+  overflow: visible !important;
+}
+
+.VPFeatures .items {
+  overflow: visible !important;
+}
+
+.VPFeatures .item {
+  overflow: visible !important;
+}
+
+/* ══════════════════════════════════════════
+   Hero
+   ══════════════════════════════════════════ */
+
+.VPHero .name,
+.VPHero .text {
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.VPHero .tagline {
+  color: var(--vp-c-text-2) !important;
+  font-size: 1rem !important;
+}
+
+/* Hero name — solid color, no gradient */
+.VPHero .clip {
+  -webkit-text-fill-color: var(--vp-c-text-1) !important;
+  background: none !important;
+}
+
+/* ══════════════════════════════════════════
+   Buttons
+   ══════════════════════════════════════════ */
+
+/* Override VitePress 20px/24px rounded buttons to sharp */
+.VPButton {
+  border-radius: 0.25rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+}
+
+/* ══════════════════════════════════════════
+   Content area
+   ══════════════════════════════════════════ */
+
+/* Footer */
 .VPFooter {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* ── Content container ── */
-.VPDoc .container .content {
-  max-width: 768px;
-}
-
-/* ── Badge ── */
+/* Badge — mono font */
 .VPBadge {
-  font-family: var(--vp-font-family-mono);
-  font-size: 0.75rem;
+  font-family: var(--vp-font-family-mono) !important;
+  font-size: 0.7rem !important;
+  border-radius: 0.25rem !important;
 }
 
-/* ── Outline / ToC ── */
+/* Outline / ToC */
 .VPDocAsideOutline .outline-link {
   font-size: 0.8rem;
 }
@@ -161,4 +297,49 @@
 .VPDocAsideOutline .outline-link.active {
   font-weight: 600;
   color: var(--vp-c-text-1);
+}
+
+/* Prev/Next nav footer */
+.VPDocFooter .pager .pager-link {
+  border-radius: 0.25rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.VPDocFooter .pager .pager-link:hover {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ══════════════════════════════════════════
+   Code blocks
+   ══════════════════════════════════════════ */
+
+/* Code groups — sharp corners */
+.vp-code-group .tabs {
+  border-radius: 0.25rem 0.25rem 0 0 !important;
+}
+
+.vp-code-group .tabs label {
+  border-radius: 0 !important;
+}
+
+/* ══════════════════════════════════════════
+   Search
+   ══════════════════════════════════════════ */
+
+.VPLocalSearchBox .shell {
+  border-radius: 0.25rem !important;
+}
+
+.VPLocalSearchBox .search-input {
+  border-radius: 0.25rem !important;
+}
+
+/* ══════════════════════════════════════════
+   Misc global overrides
+   ══════════════════════════════════════════ */
+
+/* Hide the dark mode toggle since we're light-only */
+.VPNavBarAppearance,
+.VPNavScreenAppearance {
+  display: none !important;
 }
