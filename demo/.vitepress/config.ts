@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Theme Zac Demo',
   description: 'Demo site for vitepress-theme-zac',
+  base: '/vitepress-theme-zac/',
   markdown: {
     theme: 'github-light',
   },

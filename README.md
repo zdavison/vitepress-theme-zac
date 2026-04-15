@@ -2,6 +2,8 @@
 
 A lofi, monochrome VitePress theme. Sharp corners, hatch shadows, DM Sans + JetBrains Mono.
 
+**[Live Demo](https://zdavison.github.io/vitepress-theme-zac/)**
+
 ## Install
 
 ```sh
