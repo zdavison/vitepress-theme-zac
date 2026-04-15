@@ -7,9 +7,9 @@ export default defineConfig({
   format: ['esm'],
   dts: true,
   clean: true,
-  external: ['vitepress', 'vue'],
+  external: ['vitepress', 'vue', /\.css$/],
   outDir: 'dist',
-  // Copy CSS files to dist/styles/
+  // Copy CSS files to dist/styles/ so the external imports resolve at consume-time
   async onSuccess() {
     const { cpSync, mkdirSync } = await import('fs')
     mkdirSync('dist/styles', { recursive: true })
