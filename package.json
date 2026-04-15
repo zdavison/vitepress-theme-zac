@@ -1,6 +1,6 @@
 {
   "name": "vitepress-theme-zac",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A lofi VitePress theme inspired by zac.ooo",
   "type": "module",
   "main": "./dist/index.js",
